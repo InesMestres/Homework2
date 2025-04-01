@@ -1,15 +1,18 @@
 #ifndef TIME_H
 #define TIME_H
+#include <string>
 
 class Time{
-private:
-int horas;
-int minutos;
-int segundos;
+    private:
+    int horas;
+    int minutos;
+    int segundos;
+    std::string referencia;
 
-Public:
+    public:
 
-void mostrar_tiempo const();
+    tiempo();
+    void mostrar_tiempo const();
 };
 
 #endif;
