@@ -4,5 +4,8 @@
 #define TIME_H
 
 class time{
+public:
+private:
+};
 
-}
+#endif;
