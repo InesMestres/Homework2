@@ -11,36 +11,36 @@ Time::tiempo(){
 
 }
 
-Time::tiempo(int horas_tiempo){
-    if(horas_tiempo < 0 || horas_tiempo > 24){throw std::invalid_argument("EL valor de horas es inválido");}
+Time::tiempo(int horas_tiempo, string referencia_tiempo){
+    if(horas_tiempo < 0 || horas_tiempo > 12){throw std::invalid_argument("EL valor de horas es inválido");}
     horas = horas_tiempo;
     minutos = 0;
     segundos = 0;
-    referencia = ""
+    referencia = referencia_tiempo;
     std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
 }
 
-Time::tiempo(int minutos_tiempo){
+Time::tiempo(int minutos_tiempo, string referencia_tiempo){
     if(minutos_tiempo < 0 || minutos_tiempo > 60){throw std::invalid_argument("EL valor de minutos es inválido");}
     horas = 0;
     minutos = minutos_tiempo;
     segundos = 0;
-    referencia = ""
+    referencia = referencia_tiempo;
     std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
 
 }
 
-Time::tiempo(int segundos_tiempo){
+Time::tiempo(int segundos_tiempo, string referencia_tiempo){
     if(segundos_tiempo < 0 || segundos_tiempo > 60){throw std::invalid_argument("El valor de sengundos es inválido");}
     horas = 0;
     minutos = 0;
     segundos = segundos_tiempo;
-    referencia = ""
+    referencia = referencia_tiempo;
     std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
 
 }
 
-void Time::mostrar_info(int horas_tiempo, int minutos_tiempo, int segundos_tiempo, string referencia_tiempo) const{
+void Time::tiempo(int horas_tiempo, int minutos_tiempo, int segundos_tiempo, string referencia_tiempo) const{
 
     if(horas_tiempo < 0 || horas_tiempo > 24){throw std::invalid_argument("EL valor de horas es inválido");}
     if(minutos_tiempo < 0 || minutos_tiempo > 60){throw std::invalid_argument("EL valor de minutos es inválido");}
@@ -53,4 +53,11 @@ void Time::mostrar_info(int horas_tiempo, int minutos_tiempo, int segundos_tiemp
     referencia = referencia_tiempo;
 
     std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
+}
+
+//Permite mostrar las horas en el formato de 0 a 24: 
+Time::tiempo(int horas_tiempo){
+    if(horas_tiempo < 0 || horas_tiempo > 24){throw std::invalid_argument("El valor de sengundos es inválido");}
+    horas = horas_tiempo;
+    std::cout << std::setw(2) << std::setfill('0') << horas << std::endl;
 }
