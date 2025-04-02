@@ -71,8 +71,12 @@ void Time::mostrar_24horas(int horas_tiempo, int minutos_tiempo, int segundos_ti
     minutos = minutos_tiempo;
     segundos = segundos_tiempo;
     
-    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << std::endl;
 }
+
+void mostrar_info(){
+    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << std::endl;
+};
+
 
 
 //Ahora quiero poder devolver las horas, minutos, segundos y la referencia de forma individual: 
