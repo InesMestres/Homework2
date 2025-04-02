@@ -33,7 +33,7 @@ Time::Time(int horas_tiempo, int minutos_tiempo){
 }
 
 //Muestra horas, minutos, y segundos, pero no se le pasa referencia de tiempo: 
-Time::Time(int horas_tiempo, int minutos_tiempo, int segundos_tiempo) const{
+Time::Time(int horas_tiempo, int minutos_tiempo, int segundos_tiempo){
 
     if(horas_tiempo < 0 || horas_tiempo > 23){throw std::invalid_argument("EL valor de horas es inválido");}
     if(minutos_tiempo < 0 || minutos_tiempo > 59){throw std::invalid_argument("EL valor de minutos es inválido");}

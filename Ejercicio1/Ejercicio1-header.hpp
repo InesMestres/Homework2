@@ -33,7 +33,7 @@ public:
     void setReferencia(int nueva_referencia_tiempo);
 
     //Método para mostrar horas en formato de 24: 
-    void mostrar_24horas();
+    void mostrar_24horas(int tiempo_horas, int tiempo_minutos, int tiempo_segundos);
     void mostrar_info();
 };
 
