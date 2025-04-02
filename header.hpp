@@ -11,7 +11,10 @@ class Time{
 
     public:
 
-    tiempo();
+    void tiempo();
+    void tiempo_horas();
+    void tiempo_minutos();
+    void tiempo_segundos();
     void mostrar_tiempo const();
 };
 
