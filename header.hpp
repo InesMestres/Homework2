@@ -3,19 +3,18 @@
 #include <string>
 
 class Time{
-    private:
+private:
     int horas;
     int minutos;
     int segundos;
     std::string referencia;
 
-    public:
-
-    void tiempo();
-    void tiempo_horas();
-    void tiempo_minutos();
-    void tiempo_segundos();
-    void mostrar_tiempo const();
+public:
+    Time();
+    Time(int tiempo_horas);
+    Time(int tiempo_minutos);
+    Time(int tiempo_segundos);
+    Time(int tiempo_horas, int tiempo_minutos, int tiempo_segundos);
 };
 
 #endif;
