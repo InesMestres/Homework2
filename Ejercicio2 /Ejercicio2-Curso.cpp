@@ -1,22 +1,50 @@
 #include "Ejercicio2-header.hpp"
+#include "Ejercicio2-Estudiante.cpp"
 
 Curso::Curso(int capacidad_curso){
-    
+    capacidad = capacidad_curso;
 }
 
 void Curso::inscribir_estudiante(Estudiante* estudiante_nuevo){
-    if (curso_completo() == true){std::cout<<"No se pueden inscribir mas alumnos, el curso esta completo"<<endl;}
-    for(Estudiante* in Curso){
-        if(legajo)
+    if (curso_completo() == true){
+        std::cout<<"No se pueden inscribir mas alumnos, el curso esta completo"<< std::endl;
+        return;
+    }
+    
+    for(Estudiante* estudiante_presente in Curso){
+        if(estudiante_presente -> get_legajo() == estudiante_nuevo -> get_legajo()){
+            std::cout<<"El estudiante ya esta inscripto."<< std::endl;
+            return;
+        }
+    
+    Curso.pushback(estudiante_nuevo);
+    cantidad ++;
+    
     }
 }
 
-void Curso::desinscribir_estudiante(){
+void Curso::desinscribir_estudiante(int legajo_estudiante){
     
+    for(Estudiante* estudiante_presente in Curso){
+        if(estudiante_presente -> get_legajo() == legajo_estudiante){
+            Curso.erase(estudiante_presente);
+            std::cout<<"El estudiante ya ha sido desinscripto."<< std::endl;
+            return;
+        }
+    }
+    std::cout<<"No se ha podido hallar el estudiante que deseas desinscribir."<< std::endl;
+    return;
 }
 
-void Curso::buscar_estudiante(){
-
+void Curso::buscar_estudiante(int legajo_estudiante){
+    for(Estudiante* estudiante_presente in Curso){
+        if(estudiante_presente -> get_legajo() == legajo_estudiante){
+            std::cout<<"El estudiante con el legajo presentado esta inscrito en el curso."<< std::endl;
+            return;
+        }
+    }
+    std::cout<<"El estudiante con el legajo presentado no esta inscrito en el curso."<< std::endl;
+    return;
 }
 
 bool Curso::curso_completo(){
@@ -27,24 +55,8 @@ bool Curso::curso_completo(){
 }
 
 void imprimir_lista_estudiante(){
-    
+    for(Estudiante* estudiante_presente in Curso){
+        std::cout << estudiante_presente << ", " << std::endl;
+    }
 }
 
-/*
-
-class Curso{
-    private:
-        std::vector<Estudiante*> estudiantes;
-        int capacidad = 20;
-
-    public:
-        void inscribir_estudiante();
-        void desinscribir_estudiante();
-        void buscar_estudiante();
-        bool curso_completo();
-        void imprimir_lista_estudiantes();
-
-
-};
-
-#endif*/
