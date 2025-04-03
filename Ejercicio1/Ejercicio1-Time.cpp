@@ -8,7 +8,7 @@ Time::Time(){
     minutos = 0;
     segundos = 0;
     referencia = "a.m.";
-    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
+    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') << segundos << " " << referencia << std::endl;
 }
 
 //Muestra horas:
@@ -18,7 +18,7 @@ Time::Time(int horas_tiempo){
     minutos = 0;
     segundos = 0;
     referencia = "a.m.";
-    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
+    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') << segundos << " " << referencia << std::endl;
 }
 
 //Muestra horas y minutos: 
@@ -29,7 +29,7 @@ Time::Time(int horas_tiempo, int minutos_tiempo){
     minutos = minutos_tiempo;
     segundos = 0;
     referencia = "a.m.";
-    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
+    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') << segundos << " " << referencia << std::endl;
 }
 
 //Muestra horas, minutos, y segundos, pero no se le pasa referencia de tiempo: 
@@ -44,11 +44,11 @@ Time::Time(int horas_tiempo, int minutos_tiempo, int segundos_tiempo){
     segundos = segundos_tiempo;
     referencia = "a.m.";
 
-    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
+    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') << segundos << " " << referencia << std::endl;
 }
 
 //Muestra horas, minutos y segundos en el formato pedido, con referencia: 
-Time::Time(int horas_tiempo, int minutos_tiempo, int segundos_tiempo, string referencia_tiempo) const{
+Time::Time(int horas_tiempo, int minutos_tiempo, int segundos_tiempo, std::string referencia_tiempo){
     if(horas_tiempo < 0 || horas_tiempo > 23){throw std::invalid_argument("EL valor de horas es inválido");}
     if(minutos_tiempo < 0 || minutos_tiempo > 59){throw std::invalid_argument("EL valor de minutos es inválido");}
     if(segundos_tiempo < 0 || segundos_tiempo > 59){throw std::invalid_argument("El valor de sengundos es inválido");}
@@ -59,7 +59,7 @@ Time::Time(int horas_tiempo, int minutos_tiempo, int segundos_tiempo, string ref
     segundos = segundos_tiempo;
     referencia = referencia_tiempo;
 
-    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << " " << referencia << std::endl;
+    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') << segundos << " " << referencia << std::endl;
 }
 
 //Permite mostrar las horas en el formato de 0 a 24: 
@@ -73,8 +73,8 @@ void Time::mostrar_24horas(int horas_tiempo, int minutos_tiempo, int segundos_ti
     
 }
 
-void mostrar_info(){
-    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') segundos << std::endl;
+void Time::mostrar_info(){
+    std::cout << std::setw(2) << std::setfill('0') << horas << "," << std::setw(2) << std::setfill('0') << minutos << "," << std::setw(2) << std::setfill('0') << segundos << std::endl;
 };
 
 
@@ -92,3 +92,5 @@ void Time::setMinutos(int nuevo_minutos_tiempo){minutos = nuevo_minutos_tiempo;}
 void Time::setSegundos(int nuevo_segundos_tiempo){segundos = nuevo_segundos_tiempo;}
 void Time::setReferencia(int nueva_referencia_tiempo){referencia = nueva_referencia_tiempo;}
 
+
+//Compilar: 
