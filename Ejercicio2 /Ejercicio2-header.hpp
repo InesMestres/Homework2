@@ -6,6 +6,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+#include <map>
 
 //De la clase estudiante salen 
 class Estudiante{
@@ -13,8 +14,8 @@ class Estudiante{
     private:
     std::string nombre_completo;
     int legajo;
-    std::list<int> cursos;
-     
+    std::map<std::string, float> cursos;
+
     public:
     //Constructor:
     Estudiante(std::string nombre_completo, int legajo, std::list<int> cursos);
@@ -24,17 +25,17 @@ class Estudiante{
     int get_legajo() const;
     int get_promedio() const;
 
-
 };
 
 
 class Curso{
     private:
-        std::vector<Estudiante*> estudiantes;
-        int cantidad;
+        std::vector<Estudiante*> estudiantes_curso;
+        int cantidad = 0;
         const int capacidad = 20;
 
     public:
+        Curso::Curso(int cantidad);
         void inscribir_estudiante(Estudiante* nuevo);
         void desinscribir_estudiante(int legajo);
         void buscar_estudiante(int legajo);

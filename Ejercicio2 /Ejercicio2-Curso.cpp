@@ -1,8 +1,8 @@
 #include "Ejercicio2-header.hpp"
 #include "Ejercicio2-Estudiante.cpp"
 
-Curso::Curso(int capacidad_curso){
-    capacidad = capacidad_curso;
+Curso::Curso(int cantidad_curso){
+    cantidad = cantidad_curso;
 }
 
 void Curso::inscribir_estudiante(Estudiante* estudiante_nuevo){
@@ -17,7 +17,7 @@ void Curso::inscribir_estudiante(Estudiante* estudiante_nuevo){
             return;
         }
     
-    estudiantes_curso.pushback(estudiante_nuevo);
+    estudiantes_curso.push_back(estudiante_nuevo);
     cantidad ++;
     
     }
@@ -47,16 +47,16 @@ void Curso::buscar_estudiante(int legajo_estudiante){
     return;
 }
 
-bool Curso::curso_completo(){
+bool Curso::curso_completo() const{
     if (cantidad >= capacidad){return true;}
     else{
         return false;
     }
 }
 
-void Curso::imprimir_lista_estudiante(){
+void Curso::imprimir_lista_estudiantes() const{
     for(Estudiante* estudiante_presente : estudiantes_curso){
-        std::cout << estudiante_presente << ", " << std::endl;
+        std::cout << estudiante_presente -> get_nombre() << ", Legajo: " << estudiante_presente->get_legajo() << std::endl;
     }
 }
 
