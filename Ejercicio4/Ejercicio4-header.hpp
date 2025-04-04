@@ -14,7 +14,9 @@ class Banco{
     std::string titularCuenta; //privado para proteger privacidad del usuario.
 
     public:
-    void depositar(int cantidad_dinero);
+    double get_balance();
+
+    void depositar(double cantidad_dinero);
     virtual int retirar();
     virtual void mostrar_info();
 };
