@@ -1,4 +1,5 @@
 #include "Ejercicio4-header.hpp"
+#include <iostream>
 
 Banco::Banco(){
     balance = 0;
@@ -21,9 +22,10 @@ void Banco::depositar(double cantidad_dinero){
 int Banco::retirar(double cantidad_dinero){
     if(get_balance() < cantidad_dinero){
         std::cout << "No tienes suficiente dinero para retirar la cantidad presentada" << std::endl;
-        return;
+        return 0;
     }
     balance -= cantidad_dinero;
+    return 1;
 };
 
 void Banco::mostrar_info(){

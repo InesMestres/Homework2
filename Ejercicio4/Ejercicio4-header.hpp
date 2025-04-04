@@ -16,8 +16,8 @@ class Banco{
     public:
     Banco();
 
-    double get_balance();
-    std::string get_nombre();
+    double const get_balance();
+    std::string const get_nombre();
 
     void depositar(double cantidad_dinero);
     virtual int retirar(double cantidad_dinero);
