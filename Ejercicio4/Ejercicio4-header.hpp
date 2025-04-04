@@ -14,10 +14,13 @@ class Banco{
     std::string titularCuenta; //privado para proteger privacidad del usuario.
 
     public:
+    Banco();
+
     double get_balance();
+    std::string get_nombre();
 
     void depositar(double cantidad_dinero);
-    virtual int retirar();
+    virtual int retirar(double cantidad_dinero);
     virtual void mostrar_info();
 };
 
@@ -37,4 +40,3 @@ class cuentaCorriente: public Banco{
 };
 
 #endif
-
