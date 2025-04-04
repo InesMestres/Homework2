@@ -11,13 +11,13 @@ void Curso::inscribir_estudiante(Estudiante* estudiante_nuevo){
         return;
     }
     
-    for(Estudiante* estudiante_presente in Curso){
+    for(Estudiante* estudiante_presente : estudiantes_curso){
         if(estudiante_presente -> get_legajo() == estudiante_nuevo -> get_legajo()){
             std::cout<<"El estudiante ya esta inscripto."<< std::endl;
             return;
         }
     
-    Curso.pushback(estudiante_nuevo);
+    estudiantes_curso.pushback(estudiante_nuevo);
     cantidad ++;
     
     }
@@ -25,9 +25,9 @@ void Curso::inscribir_estudiante(Estudiante* estudiante_nuevo){
 
 void Curso::desinscribir_estudiante(int legajo_estudiante){
     
-    for(Estudiante* estudiante_presente in Curso){
+    for(Estudiante* estudiante_presente : estudiantes_curso){
         if(estudiante_presente -> get_legajo() == legajo_estudiante){
-            Curso.erase(estudiante_presente);
+            estudiantes_curso.erase(estudiante_presente);
             std::cout<<"El estudiante ya ha sido desinscripto."<< std::endl;
             return;
         }
@@ -37,7 +37,7 @@ void Curso::desinscribir_estudiante(int legajo_estudiante){
 }
 
 void Curso::buscar_estudiante(int legajo_estudiante){
-    for(Estudiante* estudiante_presente in Curso){
+    for(Estudiante* estudiante_presente : estudiantes_curso){
         if(estudiante_presente -> get_legajo() == legajo_estudiante){
             std::cout<<"El estudiante con el legajo presentado esta inscrito en el curso."<< std::endl;
             return;
@@ -54,8 +54,8 @@ bool Curso::curso_completo(){
     }
 }
 
-void imprimir_lista_estudiante(){
-    for(Estudiante* estudiante_presente in Curso){
+void Curso::imprimir_lista_estudiante(){
+    for(Estudiante* estudiante_presente : estudiantes_curso){
         std::cout << estudiante_presente << ", " << std::endl;
     }
 }
