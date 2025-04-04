@@ -12,6 +12,7 @@ class Banco{
     private: 
     double balance; //privado para proteger información de cantidad de dinero del usuario.
     std::string titularCuenta; //privado para proteger privacidad del usuario.
+    std::string tipoDeCuenta = "Cuenta normal";
 
     public:
     Banco();
@@ -25,14 +26,19 @@ class Banco{
 };
 
 class cajaDeAhorro: public Banco{
-    private:
+
+    private: 
+    std::string tipoDeCuenta;
+    int cantidadVecesInfo;
+
     public:
+    cajaDeAhorro();
     int retirar();
-    
 };
 
 class cuentaCorriente: public Banco{
     private:
+
     public:
     int retirar();
     //friend;

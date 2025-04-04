@@ -4,13 +4,14 @@
 Banco::Banco(){
     balance = 0;
     titularCuenta = "anon";
+    tipoDeCuenta = "cuenta normal"
 }
 
-double Banco::get_balance(){
+double const Banco::get_balance(){
     return balance;
 };
 
-std::string Banco::get_nombre(){
+std::string const Banco::get_nombre(){
     return titularCuenta;
 }
 
@@ -29,5 +30,5 @@ int Banco::retirar(double cantidad_dinero){
 };
 
 void Banco::mostrar_info(){
-    std::cout << "Balance: " << get_balance() << ", Tipo de cuenta: " << tipocuenta << ", Titular: " << get_nombre() << std::endl;
+    std::cout << "Balance: " << get_balance() << ", Tipo de cuenta: " << tipoDeCuenta << ", Titular: " << get_nombre() << std::endl;
 }
