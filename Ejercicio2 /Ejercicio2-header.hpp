@@ -18,7 +18,7 @@ class Estudiante{
 
     public:
     //Constructor:
-    Estudiante(std::string nombre_completo, int legajo, std::list<int> cursos);
+    Estudiante(std::string nombre_estudiante, int legajo_estudiante, std::map<std::string,float> notas_estudiante);
 
     //Gets son los que permiten obtener la información individual
     std::string get_nombre() const;
@@ -30,13 +30,14 @@ class Estudiante{
 
 class Curso{
     private:
-        std::vector<Estudiante*> estudiantes_curso;
+        std::vector<std::shared_ptr<Estudiante>> estudiantes_curso;
+
         int cantidad = 0;
         const int capacidad = 20;
 
     public:
         Curso::Curso(int cantidad);
-        void inscribir_estudiante(Estudiante* nuevo);
+        void inscribir_estudiante(std::shared_ptr<Estudiante>estudiante_nuevo);
         void desinscribir_estudiante(int legajo);
         void buscar_estudiante(int legajo);
         bool curso_completo() const;
