@@ -1,14 +1,13 @@
 #include <string>
 #include "Ejercicio1-header.hpp"
-#include "Ejercicio1-Time.cpp"
+
 
 int main(){
 
-    Time myTime;
     int mi_horas = 10;
     int mi_minutos = 3;
     int mi_segundos = 44;
-    std::string mi_referencia = "a.m.";
+    std::string mi_referencia = "p.m.";
 
     Time t1;
     Time t2(mi_horas);

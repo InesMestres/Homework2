@@ -1,16 +1,4 @@
-/*
-CajaDeAhorro:
-• El método retirar() impide retirar más dinero del que existe en el balance.
-• Se realizará un descuento de $20 del balance luego de mostrar más de 2 veces
-la información de la cuenta.
-CuentaCorriente:
-• El método retirar() permite retirar dinero de la caja de ahorro si no existen
-suficientes fondos en este tipo de cuenta.
-• En caso de que la caja de ahorro tampoco tenga dinero, se imprimirá un aviso
-de que la cuenta no posee dinero. Utilizar friend para esto.*/
-
 #include "Ejercicio4-header.hpp"
-#include "Ejercicio4-Banco.cpp"
 #include <iostream>
 
 cajaDeAhorro::cajaDeAhorro(){

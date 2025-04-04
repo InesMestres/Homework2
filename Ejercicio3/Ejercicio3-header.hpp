@@ -21,12 +21,26 @@ class Numero{
     
     public:
     Numero::Numero(Numero&);
-    virtual int Suma();
-    virtual int Resta();
-    virtual int Multiplicación();
-    virtual int Division();
-    std::string toString();
+    virtual int Suma() = 0;
+    virtual int Resta() = 0;
+    virtual int Multiplicación() = 0;
+    virtual int Division() = 0;
+    virtual std::string toString() = 0;
 
-}
+};
+
+class Entero: public Numero{
+
+};
+
+class Real: public Numero{
+    
+};
+
+class Entero: public Numero{
+    
+};
+
+
 
 #endif
