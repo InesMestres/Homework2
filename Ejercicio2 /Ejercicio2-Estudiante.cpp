@@ -28,3 +28,12 @@ float Estudiante::get_promedio() const{
     }
     return (promedio/notas_estudiante.size());
 }
+
+bool Estudiante::operator<(const Estudiante& estudiante_nuevo) const{
+    return get_nombre() < estudiante_nuevo.get_nombre();
+}
+
+std::ostream& Estudiante::operator<<(std::ostream& flujo_salida, const Estudiante& estudiante_nuevo) {
+    flujo_salida << "Nombre: " << estudiante_nuevo.nombre_completo << ", Legajo: " << estudiante_nuevo.legajo;
+    return flujo_salida;
+}

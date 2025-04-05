@@ -7,6 +7,7 @@
 #include <list>
 #include <algorithm>
 #include <map>
+#include <iostream>
 
 //De la clase estudiante salen 
 class Estudiante{
@@ -23,7 +24,10 @@ class Estudiante{
     //Gets son los que permiten obtener la información individual
     std::string get_nombre() const;
     int get_legajo() const;
-    int get_promedio() const;
+    float get_promedio() const;
+
+    bool operator<(const Estudiante& estudiante_nuevo) const;
+    friend std::ostream& Curso::operator<<(std::ostream& flujo_salida, const Estudiante& estudiante_nuevo);
 
 };
 
@@ -36,17 +40,12 @@ class Curso{
         const int capacidad = 20;
 
     public:
-        Curso::Curso(int cantidad);
+        Curso(int cantidad);
         void inscribir_estudiante(std::shared_ptr<Estudiante>estudiante_nuevo);
         void desinscribir_estudiante(int legajo);
         void buscar_estudiante(int legajo);
-        bool curso_completo() const;
-        void imprimir_lista_estudiantes() const; //orden alfabético: sort()
-        //copia_curso;
-        /*v. Dado que algunos cursos comparten la mayor parte de los estudiantes, se
-desea poder hacer una copia del objeto curso. Justifique su respuesta con
-un comentario en el código (esta puede llevar varias líneas), indicando de
-que tipo de copia se trata y como la hizo.*/
+        bool curso_completo() const; 
+        void imprimir_lista_estudiantes() const; 
 
 
 };
