@@ -41,7 +41,12 @@ class Curso{
         void desinscribir_estudiante(int legajo);
         void buscar_estudiante(int legajo);
         bool curso_completo() const;
-        void imprimir_lista_estudiantes() const;
+        void imprimir_lista_estudiantes() const; //orden alfabético: sort()
+        //copia_curso;
+        /*v. Dado que algunos cursos comparten la mayor parte de los estudiantes, se
+desea poder hacer una copia del objeto curso. Justifique su respuesta con
+un comentario en el código (esta puede llevar varias líneas), indicando de
+que tipo de copia se trata y como la hizo.*/
 
 
 };

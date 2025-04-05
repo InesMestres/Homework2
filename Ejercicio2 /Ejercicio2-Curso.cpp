@@ -24,7 +24,6 @@ void Curso::inscribir_estudiante(std::shared_ptr<Estudiante> estudiante_nuevo){
     }
 }
 
-
 //AYUDA NO SE COMO HACER 
 void Curso::desinscribir_estudiante(int legajo_estudiante){
     
@@ -38,8 +37,6 @@ void Curso::desinscribir_estudiante(int legajo_estudiante){
     std::cout<<"No se ha podido hallar el estudiante que deseas desinscribir."<< std::endl;
     return;
 }
-
-
 
 void Curso::buscar_estudiante(int legajo_estudiante){
     for(std::shared_ptr<Estudiante> estudiante_presente : estudiantes_curso){
@@ -65,3 +62,7 @@ void Curso::imprimir_lista_estudiantes() const{
     }
 }
 
+/*iv. Imprimir la lista de estudiantes en orden alfabético. Para ello, utilice el
+algoritmo std::sort() en <algorithm>, el cual requerirá sobreescribir el
+operador “<”, y sobreescriba el operador “<<” (del método y clase que
+correspondan) para presentar los datos por pantalla.*/
