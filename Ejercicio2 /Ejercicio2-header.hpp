@@ -15,19 +15,19 @@ class Estudiante{
     private:
     std::string nombre_completo;
     int legajo;
-    std::map<std::string, float> cursos;
+    std::map<std::string, float> notas;
 
     public:
     //Constructor:
     Estudiante(std::string nombre_estudiante, int legajo_estudiante, std::map<std::string,float> notas_estudiante);
 
-    //Gets son los que permiten obtener la información individual
+    //Gets son los que permiten obtener la información individual (nombre, legajo, promedio):
     std::string get_nombre() const;
     int get_legajo() const;
     float get_promedio() const;
 
-    bool operator<(const Estudiante& estudiante_nuevo) const;
-    friend std::ostream& Curso::operator<<(std::ostream& flujo_salida, const Estudiante& estudiante_nuevo);
+    bool operator<(const Estudiante& estudiante_nuevo) const; //enseña como comparar alfabéticamente a los estudiantes. 
+    friend std::ostream& operator<<(std::ostream& flujo_salida, const Estudiante& estudiante_nuevo); //enseña como imprimir los estudiantes. 
 
 };
 

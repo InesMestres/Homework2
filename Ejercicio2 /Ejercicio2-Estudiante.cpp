@@ -6,7 +6,7 @@
 Estudiante::Estudiante(std::string nombre_estudiante, int legajo_estudiante, std::map<std::string,float> notas_estudiante){
     nombre_completo = nombre_estudiante;
     legajo = legajo_estudiante;
-    cursos = notas_estudiante;
+    notas = notas_estudiante;
 
 }
 
@@ -19,21 +19,21 @@ int Estudiante::get_legajo() const{
 }
 
 float Estudiante::get_promedio() const{
-    if(notas_estudiante.empty()){
+    if(notas.empty()){
         return 0;
     }
     float promedio = 0;
-    for(float nota: notas_estudiante){
-        promedio += nota;
+    for(auto& materia_nota: notas){
+        promedio += materia_nota.second;
     }
-    return (promedio/notas_estudiante.size());
+    return (promedio/notas.size());
 }
 
 bool Estudiante::operator<(const Estudiante& estudiante_nuevo) const{
     return get_nombre() < estudiante_nuevo.get_nombre();
 }
 
-std::ostream& Estudiante::operator<<(std::ostream& flujo_salida, const Estudiante& estudiante_nuevo) {
+std::ostream& operator<<(std::ostream& flujo_salida, const Estudiante& estudiante_nuevo) {
     flujo_salida << "Nombre: " << estudiante_nuevo.nombre_completo << ", Legajo: " << estudiante_nuevo.legajo;
     return flujo_salida;
 }

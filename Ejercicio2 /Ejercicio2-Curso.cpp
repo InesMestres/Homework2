@@ -24,17 +24,16 @@ void Curso::inscribir_estudiante(std::shared_ptr<Estudiante> estudiante_nuevo){
     }
 }
 
-//AYUDA NO SE COMO HACER 
 void Curso::desinscribir_estudiante(int legajo_estudiante){
     
-    for(std::shared_ptr<Estudiante> estudiante_presente : estudiantes_curso){
-        if(estudiante_presente -> get_legajo() == legajo_estudiante){
-            estudiantes_curso.erase(estudiante_presente);
-            std::cout<<"El estudiante ya ha sido desinscripto."<< std::endl;
+    for(auto iterador_estudiantes = estudiantes_curso.begin(); iterador_estudiantes != estudiantes_curso.end(); iterador_estudiantes++){
+        if((*iterador_estudiantes) -> get_legajo() == legajo_estudiante){
+            estudiantes_curso.erase(iterador_estudiantes);
+            std::cout<<"El estudiante con legajo: " << legajo_estudiante << "ha sido desinscripto."<< std::endl;
             return;
         }
     }
-    std::cout<<"No se ha podido hallar el estudiante que deseas desinscribir."<< std::endl;
+    std::cout<<"No se ha podido hallar el estudiante con legajo: "<< legajo_estudiante << std::endl;
     return;
 }
 
