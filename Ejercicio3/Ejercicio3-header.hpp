@@ -14,33 +14,58 @@ imprima el resultado utilizando el método “toString”.*/
 #define NUMERO_H
 #include <iomanip>
 #include <string>
+#include <memory>
 
 
 class Numero{
     private:
     
     public:
-    Numero::Numero(Numero&);
-    virtual int Suma() = 0;
-    virtual int Resta() = 0;
-    virtual int Multiplicación() = 0;
-    virtual int Division() = 0;
-    virtual std::string toString() = 0;
+    virtual~Numero(){};
+    virtual std::shared_ptr<Numero> suma(const Numero& otro_numero) const = 0;
+    virtual std::shared_ptr<Numero> Resta(const Numero& otro_numero) const = 0;
+    virtual std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero) const = 0;
+    virtual std::shared_ptr<Numero> Division(const Numero& otro_numero) const = 0;
+    virtual std::string toString() const = 0;
 
 };
 
 class Entero: public Numero{
+    private:
+    int valor_entero;
+    public:
+    Entero(int valor_entero);
+    int get_valor_entero() const;
+    std::shared_ptr<Numero> Suma(const Numero& otro_numero);
+    std::shared_ptr<Numero> Resta(const Numero& otro_numero);
+    std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero);
+    std::shared_ptr<Numero> Division(const Numero& otro_numero);
 
 };
 
 class Real: public Numero{
-    
+    private:
+    int valor_real;
+    public:
+    Real(int valor_real);
+    int get_valor_real() const;
+    std::shared_ptr<Numero> Suma(const Numero& otro_numero);
+    std::shared_ptr<Numero> Resta(const Numero& otro_numero);
+    std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero);
+    std::shared_ptr<Numero> Division(const Numero& otro_numero);
 };
 
-class Entero: public Numero{
-    
+class Complejo: public Numero{
+    private:
+    int valor_complejo;
+    public:
+    Complejo(int valor_complejo);
+    int get_valor_complejo() const;
+    std::shared_ptr<Numero> Suma(const Numero& otro_numero);
+    std::shared_ptr<Numero> Resta(const Numero& otro_numero);
+    std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero);
+    std::shared_ptr<Numero> Division(const Numero& otro_numero);
 };
-
 
 
 #endif

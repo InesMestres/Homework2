@@ -1,5 +1,4 @@
 #include "Ejercicio2-header.hpp"
-#include "Ejercicio2-Estudiante.cpp"
 #include <memory>
 
 Curso::Curso(int cantidad_curso){
@@ -17,11 +16,9 @@ void Curso::inscribir_estudiante(std::shared_ptr<Estudiante> estudiante_nuevo){
             std::cout<<"El estudiante ya esta inscripto."<< std::endl;
             return;
         }
-    
+    }
     estudiantes_curso.push_back(estudiante_nuevo);
     cantidad ++;
-    
-    }
 }
 
 void Curso::desinscribir_estudiante(int legajo_estudiante){
@@ -49,7 +46,7 @@ void Curso::buscar_estudiante(int legajo_estudiante){
 }
 
 bool Curso::curso_completo() const{
-    if (cantidad >= capacidad){return true;}
+    if (estudiantes_curso.size() >= capacidad){return true;}
     else{
         return false;
     }

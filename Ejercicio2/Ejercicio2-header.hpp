@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <map>
 #include <iostream>
+#include <memory>
 
 //De la clase estudiante salen 
 class Estudiante{
