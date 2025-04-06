@@ -60,7 +60,9 @@ class Complejo: public Numero{
     float parte_imaginaria;
     public:
     Complejo(float parte_real, float parte_imaginaria);
-    int get_valor_complejo() const;
+    float get_parte_real() const;
+    float get_parte_imaginaria() const;
+
     std::shared_ptr<Numero> suma(std::shared_ptr<Numero> otro_numero) const override;
     std::shared_ptr<Numero> resta(std::shared_ptr<Numero> otro_numero) const override;
     std::shared_ptr<Numero> multiplicacion(std::shared_ptr<Numero> otro_numero) const override;
