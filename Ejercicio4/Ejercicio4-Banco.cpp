@@ -1,8 +1,7 @@
 #include "Ejercicio4-header.hpp"
 #include <iostream>
+#include <memory>
 
-
-//Clase abstracta Banco:
 
 //Constructor de banco:
 Banco::Banco(std::string titular_cuenta_usuario, double balance_usuario){
