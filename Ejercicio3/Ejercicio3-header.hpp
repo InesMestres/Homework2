@@ -12,20 +12,18 @@ imprima el resultado utilizando el método “toString”.*/
 
 #ifndef NUMERO_H
 #define NUMERO_H
+#include <iostream>
 #include <iomanip>
 #include <string>
 #include <memory>
 
-
-class Numero{
-    private:
-    
+class Numero{    
     public:
     virtual~Numero(){};
-    virtual std::shared_ptr<Numero> suma(const Numero& otro_numero) const = 0;
-    virtual std::shared_ptr<Numero> Resta(const Numero& otro_numero) const = 0;
-    virtual std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero) const = 0;
-    virtual std::shared_ptr<Numero> Division(const Numero& otro_numero) const = 0;
+    virtual std::shared_ptr<Numero> suma(std::shared_ptr<Numero> otro_numero) const = 0;
+    virtual std::shared_ptr<Numero> resta(std::shared_ptr<Numero> otro_numero) const = 0;
+    virtual std::shared_ptr<Numero> multiplicacion(std::shared_ptr<Numero> otro_numero) const = 0;
+    virtual std::shared_ptr<Numero> division(std::shared_ptr<Numero> otro_numero) const = 0;
     virtual std::string toString() const = 0;
 
 };
@@ -36,35 +34,38 @@ class Entero: public Numero{
     public:
     Entero(int valor_entero);
     int get_valor_entero() const;
-    std::shared_ptr<Numero> Suma(const Numero& otro_numero);
-    std::shared_ptr<Numero> Resta(const Numero& otro_numero);
-    std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero);
-    std::shared_ptr<Numero> Division(const Numero& otro_numero);
-
+    std::shared_ptr<Numero> suma(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> resta(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> multiplicacion(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> division(std::shared_ptr<Numero> otro_numero) const override;
+    std::string toString() const override;
 };
 
 class Real: public Numero{
     private:
-    int valor_real;
+    float valor_real;
     public:
     Real(int valor_real);
     int get_valor_real() const;
-    std::shared_ptr<Numero> Suma(const Numero& otro_numero);
-    std::shared_ptr<Numero> Resta(const Numero& otro_numero);
-    std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero);
-    std::shared_ptr<Numero> Division(const Numero& otro_numero);
+    std::shared_ptr<Numero> suma(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> resta(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> multiplicacion(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> division(std::shared_ptr<Numero> otro_numero) const override;
+    std::string toString() const override;
 };
 
 class Complejo: public Numero{
     private:
-    int valor_complejo;
+    float parte_real;
+    float parte_imaginaria;
     public:
-    Complejo(int valor_complejo);
+    Complejo(float parte_real, float parte_imaginaria);
     int get_valor_complejo() const;
-    std::shared_ptr<Numero> Suma(const Numero& otro_numero);
-    std::shared_ptr<Numero> Resta(const Numero& otro_numero);
-    std::shared_ptr<Numero> Multiplicacion(const Numero& otro_numero);
-    std::shared_ptr<Numero> Division(const Numero& otro_numero);
+    std::shared_ptr<Numero> suma(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> resta(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> multiplicacion(std::shared_ptr<Numero> otro_numero) const override;
+    std::shared_ptr<Numero> division(std::shared_ptr<Numero> otro_numero) const override;
+    std::string toString() const override;
 };
 
 

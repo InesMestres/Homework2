@@ -30,7 +30,7 @@ int main(){
     return 0;
 }
 
-/*Respuesta a preguntas:
+/*Respuesta a pregunta:
 
 La relación entre los objetos curso y estudiante se trata de agregación:
 El curso se comporta como un "todo" y los estudiantes, sus "partes", sin embargo, el ciclo de vida de los objetos no dependen del otro objeto.
