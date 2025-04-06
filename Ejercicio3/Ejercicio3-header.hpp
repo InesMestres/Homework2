@@ -45,7 +45,7 @@ class Real: public Numero{
     private:
     float valor_real;
     public:
-    Real(int valor_real);
+    Real(float valor_real);
     int get_valor_real() const;
     std::shared_ptr<Numero> suma(std::shared_ptr<Numero> otro_numero) const override;
     std::shared_ptr<Numero> resta(std::shared_ptr<Numero> otro_numero) const override;
