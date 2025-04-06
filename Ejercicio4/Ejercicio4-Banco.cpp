@@ -22,5 +22,6 @@ std::string Banco::get_titular() const{
 //Deposita dinero ingresado como parámetro en la cuenta de banco:
 void Banco::depositar(double cantidad_dinero){
     balance += cantidad_dinero;
+    std::cout <<"Se depositaron: $" << cantidad_dinero << std::endl; 
     return;
 };

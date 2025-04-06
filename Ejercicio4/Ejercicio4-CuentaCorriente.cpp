@@ -8,18 +8,18 @@ bool cuentaCorriente::retirar(double cantidad_dinero){
     
     if(get_balance() >= cantidad_dinero){
         balance -= cantidad_dinero;
-        std::cout << "El dinero ha sido retirado de esta cuenta corriente." << std::endl;
+        std::cout << "$" << cantidad_dinero << " han sido retirado de esta cuenta corriente." << std::endl;
         return true;
     }
-    std::cout << "No hay suficiente dinero en esta cuenta para realizar esta operación. Se analiza el dinero disponible en la caja de ahorro." << std::endl;
+    std::cout << "No hay suficiente dinero en esta cuenta para retirar $" << cantidad_dinero << ". Se analiza el dinero disponible en la caja de ahorro." << std::endl;
     
     if(puntero_cajaAhorro -> get_balance() >= cantidad_dinero){
         puntero_cajaAhorro -> retirar(cantidad_dinero);
-        std::cout << "El dinero requerido será retirado de la caja de ahorro." << std::endl;
+        std::cout << "El dinero requerido: $" << cantidad_dinero << " será retirado de la caja de ahorro." << std::endl;
         return true;
     }
 
-    std::cout << "No hay suficiente dinero ni en la caja de ahorro ni en la cuenta corriente para hacer este retiro de dinero." << std::endl;
+    std::cout << "No hay suficiente dinero ni en la caja de ahorro ni en la cuenta corriente para retirar: $" << cantidad_dinero << std::endl;
     return false;
 }
 

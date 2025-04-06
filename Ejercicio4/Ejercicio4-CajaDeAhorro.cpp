@@ -5,11 +5,11 @@ cajaDeAhorro::cajaDeAhorro(std::string titular, double balance_inicial):Banco(ti
 
 bool cajaDeAhorro::retirar(double cantidad_dinero){
     if(get_balance() < cantidad_dinero){
-        std::cout << "No se puede hacer esta transacción porque no hay suficiente dinero en la cuenta" << std::endl;
+        std::cout << "No se puede retirar $" << cantidad_dinero << "porque no hay suficiente dinero en la cuenta" << std::endl;
         return false;
     }
     balance -= cantidad_dinero;
-    std::cout << "Se retiró el dinero." << std::endl;
+    std::cout << "Se retiraron " << cantidad_dinero << std::endl;
 
     if(cantidadVecesInfo > 2){
         balance -= 20;

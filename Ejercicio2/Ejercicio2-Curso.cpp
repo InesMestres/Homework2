@@ -37,28 +37,26 @@ void Curso::desinscribir_estudiante(int legajo_estudiante){
 void Curso::buscar_estudiante(int legajo_estudiante){
     for(std::shared_ptr<Estudiante> estudiante_presente : estudiantes_curso){
         if(estudiante_presente -> get_legajo() == legajo_estudiante){
-            std::cout<<"El estudiante con el legajo presentado esta inscrito en el curso."<< std::endl;
+            std::cout<<"El estudiante con el legajo " << legajo_estudiante << " presentado esta inscrito en el curso."<< std::endl;
             return;
         }
     }
-    std::cout<<"El estudiante con el legajo presentado no esta inscrito en el curso."<< std::endl;
+    std::cout<<"El estudiante con el legajo" << legajo_estudiante << " no esta inscrito en el curso."<< std::endl;
     return;
 }
 
 bool Curso::curso_completo() const{
-    if (estudiantes_curso.size() >= capacidad){return true;}
+    if (estudiantes_curso.size() >= capacidad){
+        std::cout << "Curso completo (20 alumnos)" << std::endl;
+        return true;}
     else{
+        std::cout << "Curso no completo, hay " << estudiantes_curso.size() << " estudiantes." << std::endl;
         return false;
     }
 }
 
 void Curso::imprimir_lista_estudiantes() const{
     for(std::shared_ptr<Estudiante> estudiante_presente : estudiantes_curso){
-        std::cout << estudiante_presente -> get_nombre() << ", Legajo: " << estudiante_presente->get_legajo() << std::endl;
+        std::cout << "Lista alumnos en el curso: " << estudiante_presente -> get_nombre() << ", Legajo: " << estudiante_presente->get_legajo() << std::endl;
     }
 }
-
-/*iv. Imprimir la lista de estudiantes en orden alfabético. Para ello, utilice el
-algoritmo std::sort() en <algorithm>, el cual requerirá sobreescribir el
-operador “<”, y sobreescriba el operador “<<” (del método y clase que
-correspondan) para presentar los datos por pantalla.*/

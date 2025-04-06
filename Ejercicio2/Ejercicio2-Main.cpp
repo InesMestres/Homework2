@@ -14,9 +14,6 @@ int main(){
     std::map<std::string, float> estudiante1_notas = {{"Matemática", 7}, {"Lengua", 9}, {"Programación", 8}}; 
 
     auto estudiante1 = std::make_shared<Estudiante>(estudiante1_nombre, estudiante1_legajo, estudiante1_notas);
-    estudiante1 -> get_nombre();
-    estudiante1 -> get_legajo();
-    estudiante1 -> get_promedio();
 
     //Compruebo funciones de Curso:
     Curso mi_curso(0);
