@@ -1,34 +1,27 @@
 #include "Ejercicio4-header.hpp"
 #include <iostream>
 
-Banco::Banco(){
-    balance = 0;
-    titularCuenta = "anon";
-    tipoDeCuenta = "cuenta normal"
+
+//Clase abstracta Banco:
+
+//Constructor de banco:
+Banco::Banco(std::string titular_cuenta_usuario, double balance_usuario){
+    balance = balance_usuario;
+    titularCuenta = titular_cuenta_usuario;
 }
 
-double const Banco::get_balance(){
+//Retorna balance (cantidad de dinero) que tiene titular en el banco:
+double Banco::get_balance() const{
     return balance;
 };
 
-std::string const Banco::get_nombre(){
+//Retorna titular de la cuenta de banco:
+std::string Banco::get_titular() const{
     return titularCuenta;
 }
 
+//Deposita dinero ingresado como parámetro en la cuenta de banco:
 void Banco::depositar(double cantidad_dinero){
     balance += cantidad_dinero;
     return;
 };
-
-int Banco::retirar(double cantidad_dinero){
-    if(get_balance() < cantidad_dinero){
-        std::cout << "No tienes suficiente dinero para retirar la cantidad presentada" << std::endl;
-        return 0;
-    }
-    balance -= cantidad_dinero;
-    return 1;
-};
-
-void Banco::mostrar_info(){
-    std::cout << "Balance: " << get_balance() << ", Tipo de cuenta: " << tipoDeCuenta << ", Titular: " << get_nombre() << std::endl;
-}

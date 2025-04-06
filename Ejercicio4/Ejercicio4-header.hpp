@@ -65,7 +65,7 @@ class cajaDeAhorro: public Banco{
     int cantidadVecesInfo = 0;
 
     public:
-    cajaDeAhorro(double balance, std::string titularCuenta);
+    cajaDeAhorro(std::string titularCuenta, double balance);
     bool retirar(double cantidad_dinero) override;
     void mostrar_info();
 };

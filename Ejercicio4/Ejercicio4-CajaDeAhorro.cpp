@@ -1,27 +1,27 @@
 #include "Ejercicio4-header.hpp"
 #include <iostream>
 
-cajaDeAhorro::cajaDeAhorro(){
-    tipoDeCuenta = "Caja de Ahorro";
+cajaDeAhorro::cajaDeAhorro(std::string titular, double balance_inicial):Banco(titular, balance_inicial){
     cantidadVecesInfo = 0;
 }
 
-int cajaDeAhorro::retirar(int cantidad_dinero){
-    if(get_balance() < balance){
+bool cajaDeAhorro::retirar(double cantidad_dinero){
+    if(get_balance() < cantidad_dinero){
         std::cout << "No se puede hacer esta transacción porque no hay suficiente dinero en la cuenta" << std::endl;
-        return 0;
+        return false;
     }
+    balance -= cantidad_dinero;
+    std::cout << "Se retiró el dinero." << std::endl;
 
     if(cantidadVecesInfo >= 2){
-        balance -= (0.8)*cantidad_dinero;
-        return 1;
+        balance -= 20;
+        std::cout << "Además, se descontaron $20 debido a que se mostró la información de la cuenta mas de dos veces." << std::endl;
     }
-
-    balance -= cantidad_dinero;
-    return 1;
-
+    return true;
 }
 
-
-
-
+void cajaDeAhorro::mostrar_info(){
+    cantidadVecesInfo ++;
+    std::cout << "Titular de cuenta:" << get_titular() << ".Tipo de cuenta: Caja de Ahorro. Balance: $" << get_balance() << std::endl; 
+    return;
+}
