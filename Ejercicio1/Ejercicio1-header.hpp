@@ -30,10 +30,10 @@ public:
     void setHoras(int nuevo_horas_tiempo);
     void setMinutos(int nuevo_minutos_tiempo);
     void setSegundos(int nuevo_segundos_tiempo);
-    void setReferencia(int nueva_referencia_tiempo);
+    void setReferencia(std::string nueva_referencia_tiempo);
 
     //Método para mostrar horas en formato de 24: 
-    void mostrar_24horas(int tiempo_horas, int tiempo_minutos, int tiempo_segundos);
+    void mostrar_24horas();
     void mostrar_info();
 };
 
