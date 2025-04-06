@@ -18,7 +18,7 @@ float Complejo::get_parte_imaginaria() const{
 std::shared_ptr<Numero> Complejo::suma(std::shared_ptr<Numero> otro_numero) const {
     std::shared_ptr<Complejo>puntero_nuevo_complejo = std::dynamic_pointer_cast<Complejo>(otro_numero);
     if(puntero_nuevo_complejo == nullptr){
-        std::cout << "El tipo de numero no es entero; no se puede realizar operación." << std::endl;
+        std::cout << "El tipo de numero no es Complejo; no se puede realizar operación." << std::endl;
         return nullptr;
     }
     float resultado_real = parte_real + puntero_nuevo_complejo -> get_parte_real();
@@ -29,7 +29,7 @@ std::shared_ptr<Numero> Complejo::suma(std::shared_ptr<Numero> otro_numero) cons
 std::shared_ptr<Numero>Complejo::resta(std::shared_ptr<Numero> otro_numero) const{
     std::shared_ptr<Complejo>puntero_nuevo_complejo = std::dynamic_pointer_cast<Complejo>(otro_numero);
     if(puntero_nuevo_complejo == nullptr){
-        std::cout << "El tipo de numero no es entero; no se puede realizar operación." << std::endl;
+        std::cout << "El tipo de numero no es Complejo; no se puede realizar operación." << std::endl;
         return nullptr;
     }
     float resultado_real = parte_real - puntero_nuevo_complejo -> get_parte_real();
@@ -40,7 +40,7 @@ std::shared_ptr<Numero>Complejo::resta(std::shared_ptr<Numero> otro_numero) cons
 std::shared_ptr<Numero> Complejo::multiplicacion(std::shared_ptr<Numero> otro_numero) const{
     std::shared_ptr<Complejo>puntero_nuevo_complejo = std::dynamic_pointer_cast<Complejo>(otro_numero);
     if(puntero_nuevo_complejo == nullptr){
-        std::cout << "El tipo de numero no es entero; no se puede realizar operación." << std::endl;
+        std::cout << "El tipo de numero no es Complejo; no se puede realizar operación." << std::endl;
         return nullptr;
     }
     float resultado_real = (parte_real * puntero_nuevo_complejo -> get_parte_real()) - (parte_imaginaria *  puntero_nuevo_complejo -> get_parte_imaginaria());
@@ -51,16 +51,27 @@ std::shared_ptr<Numero> Complejo::multiplicacion(std::shared_ptr<Numero> otro_nu
 std::shared_ptr<Numero> Complejo::division(std::shared_ptr<Numero> otro_numero) const{
     std::shared_ptr<Complejo>puntero_nuevo_complejo = std::dynamic_pointer_cast<Complejo>(otro_numero);
     if(puntero_nuevo_complejo == nullptr){
-        std::cout << "El tipo de numero no es entero; no se puede realizar operación." << std::endl;
+        std::cout << "El tipo de numero no es Complejo; no se puede realizar operación." << std::endl;
         return nullptr;
     }
-    float resultado_real = ((parte_real * puntero_nuevo_complejo -> get_parte_real()) + (parte_imaginaria *  puntero_nuevo_complejo -> get_parte_imaginaria()))/((puntero_nuevo_complejo -> get_parte_real())^2 + (puntero_nuevo_complejo -> get_parte_imaginaria())^2);
-    float resultado_imaginaria = ((parte_imaginaria * puntero_nuevo_complejo -> get_parte_real()) - (parte_real *  puntero_nuevo_complejo -> get_parte_imaginaria()))/((puntero_nuevo_complejo -> get_parte_real())^2 + (puntero_nuevo_complejo -> get_parte_imaginaria())^2);
-    return std::make_shared<Entero>(resultado_real, resultado_imaginaria);
+    float a = parte_real;
+    float b = parte_imaginaria;
+    float c = puntero_nuevo_complejo -> get_parte_real();
+    float d = puntero_nuevo_complejo -> get_parte_imaginaria();
+    
+    if(c==0 && d==0){
+        std::cout<<"No se puede realizar esta operación, se divide por cero"<<std::endl;
+        return nullptr;
+    }
+
+    float resultado_real = (a*c + b*d)/(c*c+d*d);
+    float resultado_imaginaria = (b*c - a*d)/(c*c+d*d);
+
+    return std::make_shared<Complejo>(resultado_real, resultado_imaginaria);
 }
 
 
-std::string Real::toString() const{
-    return std::to_string(valor_real);
+std::string Complejo::toString() const{
+    return std::to_string(parte_real) + "+" + std::to_string(parte_imaginaria) + "i";
 }
 
